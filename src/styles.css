@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+.body{
+  text-align: center;
+}
+.section-ul{
+    list-style:none;
+    margin-bottom: 40px;
+    text-align:center;
+}
+.section-li{
+    display:inline;
+    padding: 5px;
+    background-color: white;
+    color: teal;
+    border: solid teal 1px;
+    cursor: pointer;
+}
+.section-li.active{
+    display:inline;
+    padding: 5px;
+    background-color: teal;
+    color: white;
+    border: solid teal 1px;
+    cursor: pointer;
+}
+
+
+.section-li:hover{
+    display:inline;
+    padding: 5px;
+    background-color: teal;
+    color: white;
+    border: solid teal 1px;
+    cursor: pointer;
+}
+
+.element{
+    padding: 5px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.error-msg {
+    color: #a94442;
+  }

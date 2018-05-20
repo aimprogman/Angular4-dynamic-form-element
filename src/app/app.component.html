@@ -1,0 +1,45 @@
+<div class="body">
+
+    <ul class="section-ul">
+      <li class="section-li" [class.active]="sectionActive[i]" *ngFor="let section of data;index as i;" (click)="onChangeSection(i)">
+         {{section.value}}
+      </li>
+    </ul>
+
+  <form [formGroup]="myForm">
+    <ng-template ngFor let-element [ngForOf]="elements" let-i="index">
+      <div class="element">
+        <input type="{{element.type}}" formControlName="{{element.name}}" value="{{element.value}}" placeholder="{{element.placeholder}}">
+      </div>
+      <div *ngIf="myForm.controls[element.name].invalid  && (myForm.controls[element.name].dirty || myForm.controls[element.name].touched)"
+        class="alert alert-danger">
+        <div *ngIf="myForm.controls[element.name].errors.required" class="error-msg">
+         {{errorMessages.required}}
+        </div>
+        <div *ngIf="myForm.controls[element.name].hasError('minlength')" class="error-msg">
+            {{errorMessages.minLength}} {{element.validation.minLength}}!
+        </div>
+        <div *ngIf="myForm.controls[element.name].hasError('maxlength')" class="error-msg">
+         
+            {{errorMessages.maxLength}}   {{element.validation.maxlength}}!
+        </div>
+        <div *ngIf="myForm.controls[element.name].hasError('min')" class="error-msg">
+            {{errorMessages.min}}  {{element.validation.min}}!
+        </div>
+        <div *ngIf="myForm.controls[element.name].hasError('max')" class="error-msg">
+            {{errorMessages.max}}  {{element.validation.max}}!
+        </div>
+        <div *ngIf="myForm.controls[element.name].hasError('pattern')" class="error-msg">
+            {{errorMessages.pattern}} 
+        </div>
+        <div *ngIf="myForm.controls[element.name].hasError('email')" class="error-msg">
+            {{errorMessages.email}} 
+          
+        </div>
+      </div>
+    </ng-template>
+  </form>
+
+  <p>Данные формы: {{ myForm.value | json }}</p>
+
+</div>
